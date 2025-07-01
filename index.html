@@ -245,7 +245,7 @@
         <h2 class="section-title">Get In Touch</h2>
         <p class="hero-subtitle">I'm always open to discussing new projects, creative ideas, or opportunities to be part of an amazing team.</p>
         <div class="contact-buttons">
-            <a href="mailto:sahil82764@gmail.com" class="contact-btn">
+            <a href="mailto:sahil82764@gmail.com" class="contact-btn" id="emailMeBtn">
                 <i class="fas fa-envelope"></i> Email Me
             </a>
             <a href="https://www.linkedin.com/in/sahil-khan-845aa41b3/" target="_blank" class="contact-btn secondary">
@@ -259,5 +259,20 @@
     </footer>
 
     <script src="script.js"></script>
-</body>
-</html>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const navLinks = document.getElementById('navLinks');
+
+            mobileMenu.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+
+            // Close the menu when a link is clicked
+            navLinks.addEventListener('click', function() {
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
+    </body>
+    </html>

@@ -17,7 +17,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     mobileMenu.addEventListener('click', () => {
         navLinks.classList.toggle('active');
-        // Simple icon toggle between bars and times (X)
         const icon = mobileMenu.querySelector('i');
         if (icon.classList.contains('fa-bars')) {
             icon.classList.remove('fa-bars');
@@ -60,4 +59,56 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(section);
     });
 
+    // --- Dynamic Status Logic ---
+    const today = new Date();
+    today.setHours(0, 0, 0, 0); // Normalize to the start of the day
+
+    // --- Certification Status Logic ---
+    function updateCertificationStatus() {
+        const certifications = document.querySelectorAll('.certification-item');
+        certifications.forEach(cert => {
+            const statusElement = cert.querySelector('.cert-status');
+            const expiryDateStr = cert.dataset.expiryDate;
+
+            if (expiryDateStr) {
+                const expiryDate = new Date(expiryDateStr);
+                
+                if (expiryDate >= today) {
+                    statusElement.textContent = 'Valid';
+                    statusElement.classList.add('valid');
+                } else {
+                    statusElement.textContent = 'Expired';
+                    statusElement.classList.add('expired');
+                }
+            } else {
+                statusElement.textContent = 'Valid';
+                statusElement.classList.add('valid');
+            }
+        });
+    }
+
+    // --- Education Status Logic ---
+    function updateEducationStatus() {
+        const educations = document.querySelectorAll('.education-item');
+        educations.forEach(edu => {
+            const statusElement = edu.querySelector('.education-status');
+            const startDate = new Date(edu.dataset.startDate);
+            const endDate = new Date(edu.dataset.endDate);
+
+            if (endDate < today) {
+                statusElement.textContent = 'Completed';
+                statusElement.classList.add('completed');
+            } else if (startDate <= today && endDate >= today) {
+                statusElement.textContent = 'In Progress';
+                statusElement.classList.add('in-progress');
+            } else if (startDate > today) {
+                statusElement.textContent = 'Upcoming';
+                statusElement.classList.add('upcoming');
+            }
+        });
+    }
+
+    // Run both status checks
+    updateCertificationStatus();
+    updateEducationStatus();
 });

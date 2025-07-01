@@ -39,7 +39,6 @@
             
             <div class="contact-chips">
                 <div class="chip"><i class="fas fa-map-marker-alt"></i> St. John's, NL, Canada</div>
-                <div class="chip"><i class="fas fa-envelope"></i> sahil82764@gmail.com</div>
             </div>
 
             <div class="social-links">
@@ -62,7 +61,7 @@
                     <div class="role">Data Engineer</div>
                     <div class="location">New Delhi, INDIA</div>
                 </div>
-                <div class="duration">02/2023 – 08/2023</div>
+                <div class="duration">04/2022 – 08/2023</div>
             </div>
             
             <div class="tech-stack">
@@ -245,9 +244,10 @@
         <h2 class="section-title">Get In Touch</h2>
         <p class="hero-subtitle">I'm always open to discussing new projects, creative ideas, or opportunities to be part of an amazing team.</p>
         <div class="contact-buttons">
-            <a href="mailto:sahil82764@gmail.com" class="contact-btn" id="emailMeBtn">
-                <i class="fas fa-envelope"></i> Email Me
-            </a>
+            <button class="contact-btn" id="emailMeBtn">
+                <i class="fas fa-envelope"></i>
+                <span class="btn-text">Email Me</span>
+            </button>
             <a href="https://www.linkedin.com/in/sahil-khan-845aa41b3/" target="_blank" class="contact-btn secondary">
                 <i class="fab fa-linkedin-in"></i> LinkedIn
             </a>
@@ -259,20 +259,5 @@
     </footer>
 
     <script src="script.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenu = document.getElementById('mobileMenu');
-            const navLinks = document.getElementById('navLinks');
-
-            mobileMenu.addEventListener('click', function() {
-                navLinks.classList.toggle('active');
-            });
-
-            // Close the menu when a link is clicked
-            navLinks.addEventListener('click', function() {
-                navLinks.classList.remove('active');
-            });
-        });
-    </script>
-    </body>
-    </html>
+</body>
+</html>

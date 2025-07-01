@@ -108,7 +108,38 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Run both status checks
+    // --- Smart Email Button Logic ---
+    function setupSmartEmailButton() {
+        const emailButton = document.getElementById('emailMeBtn');
+        if (!emailButton) return;
+
+        const btnText = emailButton.querySelector('.btn-text');
+        const originalText = btnText.textContent;
+        const email = 'sahil82764@gmail.com';
+
+        emailButton.addEventListener('click', () => {
+            // 1. Copy to clipboard
+            navigator.clipboard.writeText(email).then(() => {
+                // 2. Provide feedback
+                btnText.textContent = 'Copied!';
+                emailButton.classList.add('copied');
+
+                // 3. Attempt to open mail client
+                window.location.href = `mailto:${email}?subject=Job%20Opportunity%20Inquiry`;
+
+                // 4. Revert button state after a delay
+                setTimeout(() => {
+                    btnText.textContent = originalText;
+                    emailButton.classList.remove('copied');
+                }, 2500); // Revert after 2.5 seconds
+            }).catch(err => {
+                console.error('Failed to copy email: ', err);
+            });
+        });
+    }
+
+    // --- Run all dynamic functions on page load ---
     updateCertificationStatus();
     updateEducationStatus();
+    setupSmartEmailButton();
 });

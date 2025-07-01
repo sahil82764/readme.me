@@ -358,6 +358,10 @@ body {
 .contact-btn.secondary { background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); }
 .contact-btn.secondary:hover { background: rgba(255, 255, 255, 0.2); box-shadow: none; }
 
+.contact-btn.copied {
+    background: linear-gradient(45deg, #10b981, #10b981); /* Green feedback color */
+}
+
 /* --- Footer --- */
 .footer { text-align: center; padding: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.1); color: #9ca3af; }
 

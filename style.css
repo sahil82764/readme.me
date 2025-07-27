@@ -194,6 +194,14 @@ body {
     background: linear-gradient(45deg, #3b82f6, #8b5cf6);
 }
 
+.social-links a.linkedin:hover {
+    background: #0077b5; /* LinkedIn Blue */
+}
+
+.social-links a.github:hover {
+    background: #333; /* GitHub Dark Grey */
+}
+
 .scroll-indicator {
     position: absolute;
     bottom: 2rem;
